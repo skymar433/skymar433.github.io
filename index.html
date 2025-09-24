@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skylesha • Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- galaxy background -->
+  <div class="stars" aria-hidden="true"></div>
+  <div class="twinkles" aria-hidden="true"></div>
+  <div id="meteors" aria-hidden="true"></div>
+
+  <!-- nav -->
+  <header class="nav">
+    <div class="logo">Skylesha</div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/skymar433" target="_blank">GitHub ↗</a>
+      <a href="mailto:skylesha@g.ucla.edu" class="btn">Email</a>
+    </nav>
+  </header>
+
+  <!-- hero -->
+  <section class="hero">
+    <h1>Hi, I'm Skylesha 👋</h1>
+    <p>I build fun projects and share them. Python • Front-end • always learning.</p>
+    <a href="#projects" class="btn">See My Work</a>
+  </section>
+
+  <!-- projects -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Create a GIF with Python</h3>
+        <p>6 lines of Python that stitch images into a looping GIF using ImageIO.</p>
+        <div class="tags">
+          <span>Python</span><span>ImageIO</span><span>CLI</span>
+        </div>
+        <a href="https://github.com/skymar433/Create-gif" target="_blank">GitHub ↗</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Word Guessing Game</h3>
+        <p>Console word game with replay loop and simple scoring.</p>
+        <div class="tags">
+          <span>Python</span><span>Game</span><span>Terminal</span>
+        </div>
+        <a href="https://github.com/skymar433/word-guessing-game" target="_blank">GitHub ↗</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>This site! Built with HTML/CSS and deployed using GitHub Pages.</p>
+        <div class="tags">
+          <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
+        </div>
+        <a href="https://skymar433.github.io/" target="_blank">Live Site ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Skylesha • Made with 💜 and ✨</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // meteors (right → left)
+    (function () {
+      const layer = document.getElementById('meteors');
+
+      function spawnMeteor() {
+        const m = document.createElement('div');
+        m.className = 'meteor';
+
+        // start off-screen right
+        const startX = window.innerWidth + 50;
+        const startY = Math.random() * (window.innerHeight * 0.7);
+        m.style.setProperty('--sx', startX + 'px');
+        m.style.setProperty('--sy', startY + 'px');
+
+        layer.appendChild(m);
+        setTimeout(() => m.remove(), 2200);
+      }
+
+      function loop() {
+        spawnMeteor();
+        const next = 2000 + Math.random() * 2000; // every 2–4s
+        setTimeout(loop, next);
+      }
+      loop();
+    })();
+  </script>
+</body>
+</html>

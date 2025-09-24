@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About • Skylesha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="stars"></div>
+  <div class="twinkles"></div>
+  <div id="meteors"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="brand">Skylesha</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="https://github.com/skymar433" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="mailto:skylesha@g.ucla.edu" class="btn">Email</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ABOUT CONTENT -->
+  <main class="wrap" style="padding:60px 0;">
+    <section class="card about-card">
+      <h1>About Me</h1>
+      <p>
+        Hi, I'm Skylesha!! Welcome to my page! I am currently a UCLA student majoring in Cognitive Science
+        with a Specialization in Computing and minoring in Data Science Engineering.
+      </p>
+      <p>
+        I am passionate about product management, software development, UX design, and
+        building innovative, people-focused solutions.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Skylesha</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
