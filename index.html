@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skylesha • Portfolio</title>
+
+  <!-- Font & CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head> 
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Basic meta for share cards -->
+  <meta name="description" content="Skylesha’s portfolio — Python, front-end, fun projects." />
+  <meta property="og:title" content="Skylesha • Portfolio" />
+  <meta property="og:description" content="Skylesha’s portfolio — Python, front-end, fun projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://skymar433.github.io/" />
+</head>
 <body>
-  <!-- galaxy background -->
+  <!-- Galaxy background -->
   <div class="stars" aria-hidden="true"></div>
   <div class="twinkles" aria-hidden="true"></div>
   <div id="meteors" aria-hidden="true"></div>
 
-  <!-- nav -->
+  <!-- NAV -->
   <header class="nav">
     <div class="logo">Skylesha</div>
     <nav>
       <a href="#projects">Projects</a>
       <a href="about.html">About</a>
-      <a href="https://github.com/skymar433" target="_blank">GitHub ↗</a>
-      <a href="mailto:skylesha@g.ucla.edu" class="btn">Email</a>
+      <a href="https://github.com/skymar433" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="mailto:skylesha@g.ucla.edu">Email</a>
     </nav>
   </header>
 
-  <!-- hero -->
+  <!-- HERO -->
   <section class="hero">
-    <h1>Hi, I'm Skylesha 👋</h1>
-    <p>I build fun projects and share them. Python • Front-end • always learning.</p>
-    <a href="#projects" class="btn">See My Work</a>
+    <h1>Hi, I’m Skylesha!</h1>
+    <p>I am currently in the works of creating this website. Feel free to check out what I've made so far!</p>
+
+    <!-- NEW: Socials row -->
+    <div class="socials">
+      <a href="https://github.com/skymar433" target="_blank" rel="noopener">GitHub ↗</a>
+      <span>•</span>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <span>•</span>
+      <a href="mailto:skylesha@g.ucla.edu">Email</a>
+    </div>
+
+    <a href="#projects" class="btn primary">See My Work</a>
   </section>
 
-  <!-- projects -->
+  <!-- PROJECTS -->
   <section id="projects" class="projects">
     <h2>Projects</h2>
     <div class="project-list">
@@ -43,7 +62,7 @@
         <div class="tags">
           <span>Python</span><span>ImageIO</span><span>CLI</span>
         </div>
-        <a href="https://github.com/skymar433/Create-gif" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/skymar433/Create-gif" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
 
       <div class="project-card">
@@ -52,7 +71,7 @@
         <div class="tags">
           <span>Python</span><span>Game</span><span>Terminal</span>
         </div>
-        <a href="https://github.com/skymar433/word-guessing-game" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/skymar433/word-guessing-game" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
 
       <div class="project-card">
@@ -61,19 +80,20 @@
         <div class="tags">
           <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
         </div>
-        <a href="https://skymar433.github.io/" target="_blank">Live Site ↗</a>
+        <a href="https://skymar433.github.io/" target="_blank" rel="noopener">Live Site ↗</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© <span id="year"></span> Skylesha • Made with 💜 and ✨</p>
+    <p>© <span id="year"></span> Skylesha • Made with sweat and tears.</p>
   </footer>
 
   <script>
+    // year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // meteors (right → left)
+    // Meteors — top-right -> bottom-left (diagonal)
     (function () {
       const layer = document.getElementById('meteors');
 
@@ -81,9 +101,9 @@
         const m = document.createElement('div');
         m.className = 'meteor';
 
-        // start off-screen right
-        const startX = window.innerWidth + 50;
-        const startY = Math.random() * (window.innerHeight * 0.7);
+        // start slightly off-canvas top-right
+        const startX = window.innerWidth + 60;
+        const startY = -30 + Math.random() * (window.innerHeight * 0.25);
         m.style.setProperty('--sx', startX + 'px');
         m.style.setProperty('--sy', startY + 'px');
 
@@ -91,12 +111,10 @@
         setTimeout(() => m.remove(), 2200);
       }
 
-      function loop() {
+      (function loop() {
         spawnMeteor();
-        const next = 2000 + Math.random() * 2000; // every 2–4s
-        setTimeout(loop, next);
-      }
-      loop();
+        setTimeout(loop, 2000 + Math.random() * 2000);
+      })();
     })();
   </script>
 </body>
