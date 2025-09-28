@@ -4,51 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About • Skylesha</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+
+  <meta name="description" content="About Skylesha — UCLA CogSci (Computing) + Data Science Eng minor. Product, software, UX." />
 </head>
 <body>
-  <!-- Background layers -->
-  <div class="stars"></div>
-  <div class="twinkles"></div>
-  <div id="meteors"></div>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="twinkles" aria-hidden="true"></div>
+  <div id="meteors" aria-hidden="true"></div>
 
-  <!-- NAV -->
   <header class="nav">
-    <div class="wrap">
-      <div class="brand">Skylesha</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="https://github.com/skymar433" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="mailto:skylesha@g.ucla.edu" class="btn">Email</a>
-      </nav>
-    </div>
+    <div class="logo">Skylesha</div>
+    <nav class="main-links">
+      <a href="index.html#projects">Projects</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+    <nav class="actions">
+      <a href="https://github.com/skymar433" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/skylesha/" target="_blank" rel="noopener" aria-label="Open LinkedIn profile in a new tab">LinkedIn ↗</a>
+      <a href="mailto:skylesha@g.ucla.edu" aria-label="Send me an email">Email</a>
+      <a class="btn" href="index.html#projects" aria-label="Jump to Projects on home page">See My Work</a>
+    </nav>
   </header>
 
-  <!-- ABOUT CONTENT -->
-  <main class="wrap" style="padding:60px 0;">
-    <section class="card about-card">
-      <h1>About Me</h1>
-      <p>
-        Hi, I'm Skylesha!! Welcome to my page! I am currently a UCLA student majoring in Cognitive Science
-        with a Specialization in Computing and minoring in Data Science Engineering.
-      </p>
-      <p>
-        I am passionate about product management, software development, UX design, and
-        building innovative, people-focused solutions.
-      </p>
-    </section>
+  <main class="about-hero">
+    <h1>Hi, I’m Skylesha!!</h1>
+    <p>
+      Welcome to my page! I am currently a UCLA student majoring in
+      <strong>Cognitive Science with a Specialization in Computing</strong> and
+      minoring in <strong>Data Science Engineering</strong>. I am passionate about
+      product management, software development, UX design, and building innovative,
+      people-focused solutions.
+    </p>
   </main>
 
   <footer>
-    <div class="wrap">© <span id="year"></span> Skylesha</div>
+    <p>© <span id="year"></span> Skylesha • Made with sweat and tears.</p>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      const layer = document.getElementById('meteors');
+      function spawnMeteor() {
+        const m = document.createElement('div');
+        m.className = 'meteor';
+        const startX = window.innerWidth + 60;
+        const startY = -30 + Math.random() * (window.innerHeight * 0.25);
+        m.style.setProperty('--sx', startX + 'px');
+        m.style.setProperty('--sy', startY + 'px');
+        layer.appendChild(m);
+        setTimeout(() => m.remove(), 2200);
+      }
+      (function loop() {
+        spawnMeteor();
+        setTimeout(loop, 2000 + Math.random() * 2000);
+      })();
+    })();
   </script>
 </body>
 </html>

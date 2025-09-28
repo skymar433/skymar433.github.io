@@ -5,18 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skylesha • Portfolio</title>
 
-  <!-- Font & CSS -->
+  <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Basic meta for share cards -->
-  <meta name="description" content="Skylesha’s portfolio — Python, front-end, fun projects." />
+  <!-- Social preview / SEO -->
+  <meta name="description" content="Skylesha’s portfolio — Python, front-end, and fun projects." />
   <meta property="og:title" content="Skylesha • Portfolio" />
-  <meta property="og:description" content="Skylesha’s portfolio — Python, front-end, fun projects." />
+  <meta property="og:description" content="Skylesha’s portfolio — Python, front-end, and fun projects." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://skymar433.github.io/" />
+  <!-- Place a 1200x630 image at /og-image.png to use this: -->
+  <meta property="og:image" content="https://skymar433.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
   <!-- Galaxy background -->
@@ -27,11 +30,17 @@
   <!-- NAV -->
   <header class="nav">
     <div class="logo">Skylesha</div>
-    <nav>
+    <nav class="main-links">
       <a href="#projects">Projects</a>
       <a href="about.html">About</a>
-      <a href="https://github.com/skymar433" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn" href="mailto:skylesha@g.ucla.edu">Email</a>
+    </nav>
+
+    <!-- Top-right actions moved here -->
+    <nav class="actions">
+      <a href="https://github.com/skymar433" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/skylesha/" target="_blank" rel="noopener" aria-label="Open LinkedIn profile in a new tab">LinkedIn ↗</a>
+      <a href="mailto:skylesha@g.ucla.edu" aria-label="Send me an email">Email</a>
+      <a class="btn" href="#projects" aria-label="Jump to Projects section">See My Work</a>
     </nav>
   </header>
 
@@ -39,48 +48,41 @@
   <section class="hero">
     <h1>Hi, I’m Skylesha!</h1>
     <p>I am currently in the works of creating this website. Feel free to check out what I've made so far!</p>
-
-    <!-- NEW: Socials row -->
-    <div class="socials">
-      <a href="https://github.com/skymar433" target="_blank" rel="noopener">GitHub ↗</a>
-      <span>•</span>
-      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <span>•</span>
-      <a href="mailto:skylesha@g.ucla.edu">Email</a>
-    </div>
-
-    <a href="#projects" class="btn primary">See My Work</a>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="projects">
     <h2>Projects</h2>
+
     <div class="project-list">
       <div class="project-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Abstract code/terminal graphic for GIF project" />
         <h3>Create a GIF with Python</h3>
-        <p>6 lines of Python that stitch images into a looping GIF using ImageIO.</p>
+        <p>A few lines of Python that stitch images into a looping GIF using ImageIO.</p>
         <div class="tags">
           <span>Python</span><span>ImageIO</span><span>CLI</span>
         </div>
-        <a href="https://github.com/skymar433/Create-gif" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://github.com/skymar433/Create-gif" target="_blank" rel="noopener" aria-label="Open GIF project repository on GitHub">GitHub ↗</a>
       </div>
 
       <div class="project-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Keyboard and monitor for console game" />
         <h3>Word Guessing Game</h3>
         <p>Console word game with replay loop and simple scoring.</p>
         <div class="tags">
           <span>Python</span><span>Game</span><span>Terminal</span>
         </div>
-        <a href="https://github.com/skymar433/word-guessing-game" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://github.com/skymar433/word-guessing-game" target="_blank" rel="noopener" aria-label="Open Word Guessing Game repository on GitHub">GitHub ↗</a>
       </div>
 
       <div class="project-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1200&auto=format&fit=crop" alt="Abstract starry gradient for portfolio website" />
         <h3>Portfolio Website</h3>
         <p>This site! Built with HTML/CSS and deployed using GitHub Pages.</p>
         <div class="tags">
           <span>HTML</span><span>CSS</span><span>GitHub Pages</span>
         </div>
-        <a href="https://skymar433.github.io/" target="_blank" rel="noopener">Live Site ↗</a>
+        <a href="https://skymar433.github.io/" target="_blank" rel="noopener" aria-label="Open live portfolio website">Live Site ↗</a>
       </div>
     </div>
   </section>
