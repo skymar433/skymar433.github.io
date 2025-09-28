@@ -18,15 +18,11 @@
   <div id="meteors" aria-hidden="true"></div>
 
   <header class="nav">
-    <div class="logo">Skylesha</div>
+    <a class="logo" href="index.html" aria-label="Go to Home">Skylesha</a>
     <nav class="main-links">
-      <a href="index.html#projects">Projects</a>
       <a href="about.html" class="active">About</a>
     </nav>
     <nav class="actions">
-      <a href="https://github.com/skymar433" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/skylesha/" target="_blank" rel="noopener" aria-label="Open LinkedIn profile in a new tab">LinkedIn ↗</a>
-      <a href="mailto:skylesha@g.ucla.edu" aria-label="Send me an email">Email</a>
       <a class="btn" href="index.html#projects" aria-label="Jump to Projects on home page">See My Work</a>
     </nav>
   </header>
@@ -48,6 +44,8 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // same meteors as home (bright head leading)
     (function () {
       const layer = document.getElementById('meteors');
       function spawnMeteor() {

@@ -11,6 +11,9 @@ body {
   line-height: 1.6;
 }
 
+/* hide default cursor; custom cursor below */
+body { cursor: none; }
+
 /* -------- Galaxy background layers -------- */
 .stars, .twinkles, #meteors {
   position: fixed; inset: 0;
@@ -30,7 +33,7 @@ body {
 @keyframes moveStars { from {background-position:0 0;} to {background-position:-10000px 5000px;} }
 @keyframes twinkle { 0%,100% {opacity:.4;} 50% {opacity:.7;} }
 
-/* -------- Meteors: top-right -> bottom-left -------- */
+/* -------- Meteors: bright head leading (TR -> BL) -------- */
 .meteor {
   position: absolute;
   width: 2px; height: 2px;
@@ -43,14 +46,15 @@ body {
 }
 .meteor::after {
   content: "";
-  position: absolute; left: 0; top: 0;
+  position: absolute;
+  right: 0; top: 0;              /* bright head on the 'right' end (movement direction) */
   width: 140px; height: 2px;
-  background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,0));
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.95));
   border-radius: 2px;
 }
 @keyframes shootTRBL {
-  0% { opacity: 0; transform: translate(0,0) rotate(135deg); }
-  10% { opacity: 1; }
+  0%   { opacity: 0; transform: translate(0,0) rotate(135deg); }
+  10%  { opacity: 1; }
   100% { opacity: 0; transform: translate(-70vw, 70vh) rotate(135deg); }
 }
 
@@ -66,8 +70,10 @@ body {
   backdrop-filter: blur(10px);
   z-index: 5;
 }
-.logo { font-weight: 800; letter-spacing: .3px; }
-
+.logo {
+  font-weight: 800; letter-spacing: .3px;
+  color: #fff; text-decoration: none;
+}
 .main-links a,
 .actions a {
   color: #a8c7ff; text-decoration: none; margin: 0 0 0 1.2rem;
@@ -76,8 +82,6 @@ body {
 .main-links a:first-child { margin-left: 0; }
 .actions { display: flex; align-items: center; }
 .actions a:hover, .main-links a:hover { color: #fff; }
-
-/* active nav (About page) */
 .main-links a.active {
   color: #ffffff;
   text-shadow: 0 0 10px rgba(168,199,255,.45);
@@ -96,20 +100,55 @@ body {
 /* -------- Hero -------- */
 .hero {
   text-align: center;
-  padding: 5rem 2rem 2.2rem;
+  padding: 6rem 2rem 0rem; /* more top space */
 }
-.hero h1 {
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+.title-with-stars {
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
   font-weight: 800;
+  position: relative;
+  display: inline-block;
+  padding-bottom: .75rem;
 }
-.hero p {
-  margin: 1rem auto .2rem;
+.title-with-stars::after {
+  /* small sparkly underline accent */
+  content: "";
+  position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: 0;
+  width: min(340px, 60vw); height: 2px;
+  background: radial-gradient(closest-side, rgba(255,255,255,.9), rgba(255,255,255,0)) center/8px 2px repeat-x,
+              linear-gradient(90deg, rgba(168,199,255,.2), rgba(255,255,255,.7), rgba(168,199,255,.2));
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.55));
+  border-radius: 999px;
+}
+
+.hero-sub {
+  margin: 1.2rem auto 1.6rem;
   color: #c9d1f0;
   max-width: 760px;
+  font-size: 1.08rem;
+}
+
+/* social icons under hero */
+.hero-icons {
+  display: flex; gap: 1rem; justify-content: center; align-items: center;
+  margin-bottom: 3.6rem; /* adds a bigger gap before Projects */
+}
+.icon {
+  color: #a8c7ff; text-decoration: none;
+  padding: .5rem; border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  transition: transform .15s, background .15s, color .15s, box-shadow .15s;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.icon:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
 }
 
 /* -------- Projects -------- */
-.projects { padding: 3rem 2rem 2.5rem; text-align: center; }
+.projects { padding: 0 2rem 2.5rem; text-align: center; }
 .projects h2 { margin-bottom: 1.6rem; color: #a8c7ff; font-size: 1.9rem; }
 .project-list {
   display: grid; gap: 1.2rem; max-width: 1100px; margin: 0 auto;
@@ -126,10 +165,6 @@ body {
   transform: translateY(-5px);
   background: rgba(255,255,255,.08);
   box-shadow: 0 10px 30px rgba(0,0,0,.35);
-}
-.thumb {
-  width: 100%; height: 150px; object-fit: cover;
-  border-radius: 10px; margin-bottom: .8rem; display: block;
 }
 .project-card h3 { margin-bottom: .35rem; font-size: 1.12rem; }
 .project-card p  { margin-bottom: .8rem; color: #c9d1f0; font-size: .97rem; }
@@ -152,11 +187,11 @@ body {
   text-align: center; padding: 3rem 1.5rem;
 }
 .about-hero h1 {
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: clamp(2.6rem, 5.4vw, 3.8rem);
   margin-bottom: 1rem; font-weight: 800;
 }
 .about-hero p {
-  max-width: 900px; font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  max-width: 900px; font-size: clamp(1.12rem, 1.5vw, 1.35rem);
   color: #cfd7ff;
 }
 
@@ -167,11 +202,32 @@ footer {
   margin-top: 2.2rem;
 }
 
+/* -------- Custom cursor + sparks -------- */
+#cursor {
+  position: fixed; left: 0; top: 0; width: 20px; height: 20px;
+  border-radius: 50%; pointer-events: none; z-index: 1000;
+  background: radial-gradient(circle at 30% 30%, rgba(120,190,255,.9), rgba(120,190,255,.2));
+  box-shadow: 0 0 20px rgba(120,190,255,.65), 0 0 40px rgba(120,190,255,.35);
+  mix-blend-mode: screen;
+  transform: translate(-100px,-100px);
+}
+#spark-layer {
+  position: fixed; inset: 0; pointer-events: none; z-index: 999;
+}
+.spark {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(140,200,255,1), rgba(140,200,255,0));
+  box-shadow: 0 0 10px rgba(140,200,255,.9);
+  opacity: 0.9;
+  animation: sparkFade .5s ease-out forwards;
+}
+@keyframes sparkFade {
+  to { transform: translateY(6px) scale(.7); opacity: 0; }
+}
+
 /* -------- Small screens -------- */
 @media (max-width: 760px) {
   .nav { grid-template-columns: 1fr auto; gap: .6rem; }
-  .main-links { display: none; } /* keep top-right actions visible on mobile */
-  .actions a { margin-left: .9rem; }
-  .btn { margin-left: .8rem; padding: .55rem .9rem; }
-  .thumb { height: 140px; }
+  .actions a { margin-left: .8rem; }
+  .btn { padding: .55rem .9rem; }
 }
