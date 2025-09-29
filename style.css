@@ -204,6 +204,32 @@ body { cursor: none; }
   font-size: .85rem; opacity: .75; margin-top: .4rem;
 }
 
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+}
+
+.about-text {
+  flex: 1;
+  text-align: left;
+  max-width: 600px;
+}
+
+.about-photo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo {
+  max-width: 300px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
 /* -------- Footer -------- */
 footer {
   text-align: center; padding: 1rem 1rem 1.3rem;
